@@ -198,13 +198,13 @@
                                     @endforeach
                                 </p>
                                 <div style="margin-top: 5px"></div>
-                                <div style="overflow-y: scroll; height: 270px">
-                                    <div style="margin-top: 20px" id="card_link">
+                                <div style="height: 270px;">
+                                    <div style="margin-top: 20px;text-align: center;" id="card_link">
                                         @foreach (auth()->user()->link as $key=> $data)
                                         <a href="#{{$data->link}}" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal"
-                                            data-name="{{$data->name}}"  data-link="{{$data->link}}" data-id="{{$data->id}}" data-update="val{{$data->id}}" id="get_val{{$key}}" type="button" style="width: 100%" data-name="{{$data->name}}">
-                                            <div class="card card-body link" style="margin-left: 40px; margin-right: 26px; border-radius: 5px">
-                                                <div style="text-align: right; font-size: 12px">
+                                            data-name="{{$data->name}}"  data-link="{{$data->link}}" data-id="{{$data->id}}" data-update="val{{$data->id}}" id="get_val{{$key}}" type="button" style="width: 200px;" data-name="{{$data->name}}">
+                                            <div class="card card-body link" style="border-radius: 25px; width: 200px">
+                                                <div style="text-align: center; font-size: 12px">
                                                     {{$data->name}}
                                                 </div>
                                             </div>
