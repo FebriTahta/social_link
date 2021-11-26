@@ -375,6 +375,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <input class="btn btn-info text-white" onclick="copyLink()" id="btncopy" type="button" value="Copy">
+                    <a href="" id="openlink" class="btn btn-primary text-white" type="button">Open Link</a>
                 </div>
             </form>
         </div>
@@ -529,10 +530,14 @@
                 success:function(datas) {
                     if (datas !== 'kosong') {
                         $('#mylink').val('http://media.tilawatipusat.com/'+datas);
+                        var a = document.getElementById('openlink');
+                        a.href = 'http://media.tilawatipusat.com/'+datas;
                         $('#btncopy').val('Copy');
                         $('#btncopy').attr('disabled',false);
                     }else{
                         $('#mylink').val('Buat Nama Aplikasi Terlebih Dahulu');
+                        var a = document.getElementById('openlink');
+                        a.href = 'http://media.tilawatipusat.com/'+datas;
                         $('#btncopy').attr('disabled','disabled');
                         $('#btncopy').val('Not Valid');
                     }
@@ -982,10 +987,14 @@
                             success:function(datas) {
                                 if (datas !== 'kosong') {
                                     $('#mylink').val('http://media.tilawatipusat.com/'+datas);
+                                    var a = document.getElementById('openlink');
+                                    a.href = 'http://media.tilawatipusat.com/'+datas;
                                     $('#btncopy').val('Copy');
                                     $('#btncopy').attr('disabled',false);
                                 }else{
                                     $('#mylink').val('Buat Nama Aplikasi Terlebih Dahulu');
+                                    var a = document.getElementById('openlink');
+                                    a.href = 'http://media.tilawatipusat.com/'+datas;
                                     $('#btncopy').attr('disabled','disabled');
                                     $('#btncopy').val('Not Valid');
                                 }
