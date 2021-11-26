@@ -215,6 +215,7 @@ class LinkController extends Controller
                     [
                         'user_id'   => Auth::id(),
                         'name'      => $request->name,
+                        'deskripsi' => $request->deskripsi,
                         'slug'      => $slug,
                     ]
                 );
