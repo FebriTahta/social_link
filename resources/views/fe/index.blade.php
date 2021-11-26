@@ -52,7 +52,7 @@
 				</div>
 				<h2>
 					@foreach ($data->user->subsosmed as $item)
-						<i class="text-white fa fa-{{$item->sosmed->icon}} mr-2 ml-2"></i> 
+						<a href="{{$item->link}}" target="_blank"><i class="text-white fa fa-{{$item->sosmed->icon}} mr-2 ml-2"></i></a>
 					@endforeach
 				</h2>
 				<div class="separate text-white"></div>
