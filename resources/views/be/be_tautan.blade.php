@@ -369,7 +369,7 @@
                 <div class="modal-body">
                     {{-- <input type="text" name="id" id="id_del"> --}}
                     <div class="p-4 border rounded">
-                        <input type="text" id="mylink" class="form-control" readonly disabled>
+                        <input type="text" id="mylink" target="_blank" class="form-control" readonly disabled>
                     </div>
                 </div>
                 <div class="modal-footer">
