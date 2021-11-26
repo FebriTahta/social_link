@@ -61,7 +61,7 @@
 			<div class="row clearfix">
 				@foreach ($data->user->link as $item)
 					<!-- Accordion Column -->
-					<a href="{{$item->link}}" target="_blank" style="text-decoration: none;" class="accordion-column col-sm-6 text-black text-bold">
+					<a href="{{$item->link}}" target="_blank" style="text-decoration: none; font-weight: bold; text-decoration-color: black" class="accordion-column col-sm-6">
 						<!-- Accordian Box -->
 						<ul class="accordion-box" style="text-align: center">	
 							<div class="card" style="padding: 10px; border-radius: 25px">
