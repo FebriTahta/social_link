@@ -46,8 +46,8 @@
 			<!-- Sec Title -->
 			<div class="sec-title centered">
 				<img src="{{asset('be_img_aplikasi/'.$data->img)}}" style="border-radius: 50%; width: 100px" alt="">
-				<div class="text-bold text-white mt-2" style="text-align: center">
-					<h5 style="margin-top: 25px">{{$data->name}}</h5>
+				<div class="text-bold text-white mt-2">
+					<h5 style="margin-top: 25px;">{{$data->name}}</h5>
 					<p>{{$data->deskripsi}}</p>
 				</div>
 				<h2>
@@ -63,7 +63,7 @@
 					<!-- Accordion Column -->
 					<a href="{{$item->link}}" target="_blank" style="text-decoration: none" class="accordion-column col-sm-6">
 						<!-- Accordian Box -->
-						<ul class="accordion-box">	
+						<ul class="accordion-box" style="text-align: center">	
 							<li class="accordion block">
 								<div class="acc-btn" style="text-transform: capitalize; text-align: right"> {{$item->name}}</div>
 							</li>
