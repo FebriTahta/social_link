@@ -64,9 +64,9 @@
 					<a href="{{$item->link}}" target="_blank" style="text-decoration: none" class="accordion-column col-sm-6">
 						<!-- Accordian Box -->
 						<ul class="accordion-box" style="text-align: center">	
-							<li class="accordion block">
-								<div class="acc-btn" style="text-transform: capitalize; text-align: center"> {{$item->name}}</div>
-							</li>
+							
+							<div class="acc-btn" style="text-transform: capitalize; text-align: center"> {{$item->name}}</div>
+							
 						</ul>
 					</a>
 				@endforeach
