@@ -204,7 +204,7 @@
                                         <a href="#{{$data->link}}" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal"
                                             data-name="{{$data->name}}"  data-link="{{$data->link}}" data-id="{{$data->id}}" data-update="val{{$data->id}}" id="get_val{{$key}}" type="button" style="width: 200px;" data-name="{{$data->name}}">
                                             <div class="card card-body link" style="border-radius: 25px; width: 200px">
-                                                <div style="text-align: center; font-size: 12px">
+                                                <div style="text-align: center; font-size: 11px">
                                                     {{$data->name}}
                                                 </div>
                                             </div>
