@@ -136,7 +136,7 @@
                                 <div class="card card-body" id="" style="border-radius: 10px" >
                                     <div class="p-3 border rounded">
                                         <div class="">
-                                            <i class="lni lni-{{$item->sosmed->icon}}" id="icon" style="font-size: 30px"></i>
+                                            <i class="fa fa-{{$item->sosmed->icon}}" id="icon" style="font-size: 30px"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
                                 </div>
                                 <p style="text-align: center; font-size: 20px; margin-top: 10px" id="card_icon_app">
                                     @foreach ($sub_sosmed as $item)
-                                        <i class="lni lni-{{$item->sosmed->icon}}" style="margin: 5px"></i>    
+                                        <i class="fa fa-{{$item->sosmed->icon}}" style="margin: 5px"></i>    
                                     @endforeach
                                 </p>
                                 <div style="margin-top: 5px"></div>
@@ -204,7 +204,7 @@
                                         <a href="#{{$data->link}}" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal"
                                             data-name="{{$data->name}}"  data-link="{{$data->link}}" data-id="{{$data->id}}" data-update="val{{$data->id}}" id="get_val{{$key}}" type="button" style="width: 200px;" data-name="{{$data->name}}">
                                             <div class="card card-body link" style="border-radius: 25px; width: 200px">
-                                                <div style="text-align: center; font-size: 11px">
+                                                <div style="text-align: center; font-size: 12px">
                                                     {{$data->name}}
                                                 </div>
                                             </div>
@@ -554,7 +554,7 @@
         var modal       = $(this)
         $(this).find('#sosmed_id').val(sosmed_id);
         $(this).find("i").removeClass();
-        $(this).find("i").addClass('lni lni-'+icon);
+        $(this).find("i").addClass('fa fa-'+icon);
         console.log(name);
     })
 
@@ -571,7 +571,7 @@
         $(this).find('#id').val(id);
         $(this).find('#sosmed_id').val(sosmed_id);
         $(this).find("i").removeClass();
-        $(this).find("i").addClass('lni lni-'+icon);
+        $(this).find("i").addClass('fa fa-'+icon);
         console.log(icon);
         console.log(id);
     })
@@ -743,8 +743,8 @@
                         dataType: 'json',
                             success:function(datas) {
                                 for (let index = 0; index < datas.length; index++) {
-                                    card_sosmed = '<a href="#" data-bs-toggle="modal" data-bs-target="#modalupdatesosmed" data-id="'+datas[index].id+'" data-sosmed_id="'+datas[index].sosmed.id+'" data-icon="lni lni-'+datas[index].sosmed.icon+'" data-link="'+datas[index].link+'" class="col-xl-2 col-4"><div class="card card-body" id="" style="border-radius: 10px" ><div class="was-validated"><div class="p-3 border rounded text-center"><div class="col-xl-1"><i class="lni lni-'+datas[index].sosmed.icon+'" id="icon" style="font-size: 30px"></i></div></div></div></div></a>';
-                                    card_icon_app = '<i class="lni lni-'+datas[index].sosmed.icon+'" style="margin: 5px"></i>';
+                                    card_sosmed = '<a href="#" data-bs-toggle="modal" data-bs-target="#modalupdatesosmed" data-id="'+datas[index].id+'" data-sosmed_id="'+datas[index].sosmed.id+'" data-icon="fa fa-'+datas[index].sosmed.icon+'" data-link="'+datas[index].link+'" class="col-xl-2 col-4"><div class="card card-body" id="" style="border-radius: 10px" ><div class="was-validated"><div class="p-3 border rounded text-center"><div class="col-xl-1"><i class="fa fa-'+datas[index].sosmed.icon+'" id="icon" style="font-size: 30px"></i></div></div></div></div></a>';
+                                    card_icon_app = '<i class="fa fa-'+datas[index].sosmed.icon+'" style="margin: 5px"></i>';
                                     $('#card_sosmed').append(card_sosmed);
                                     $('#card_icon_app').append(card_icon_app);
                                 }
@@ -803,8 +803,8 @@
                         dataType: 'json',
                             success:function(datas) {
                                 for (let index = 0; index < datas.length; index++) {
-                                    card_sosmed = '<a href="#" data-bs-toggle="modal" data-bs-target="#modalupdatesosmed" data-id="'+datas[index].id+'" data-sosmed_id="'+datas[index].sosmed.id+'" data-icon="lni lni-'+datas[index].sosmed.icon+'" data-link="'+datas[index].link+'" class="col-xl-2 col-4"><div class="card card-body" id="" style="border-radius: 10px" ><div class="was-validated"><div class="p-3 border rounded text-center"><div class="col-xl-1"><i class="lni lni-'+datas[index].sosmed.icon+'" id="icon" style="font-size: 30px"></i></div></div></div></div></a>';
-                                    card_icon_app = '<i class="lni lni-'+datas[index].sosmed.icon+'" style="margin: 5px"></i>';
+                                    card_sosmed = '<a href="#" data-bs-toggle="modal" data-bs-target="#modalupdatesosmed" data-id="'+datas[index].id+'" data-sosmed_id="'+datas[index].sosmed.id+'" data-icon="fa fa-'+datas[index].sosmed.icon+'" data-link="'+datas[index].link+'" class="col-xl-2 col-4"><div class="card card-body" id="" style="border-radius: 10px" ><div class="was-validated"><div class="p-3 border rounded text-center"><div class="col-xl-1"><i class="fa fa-'+datas[index].sosmed.icon+'" id="icon" style="font-size: 30px"></i></div></div></div></div></a>';
+                                    card_icon_app = '<i class="fa fa-'+datas[index].sosmed.icon+'" style="margin: 5px"></i>';
                                     $('#card_sosmed').append(card_sosmed);
                                     $('#card_icon_app').append(card_icon_app);
                                 }
@@ -920,8 +920,8 @@
                         dataType: 'json',
                             success:function(datas) {
                                 for (let index = 0; index < datas.length; index++) {
-                                    card_sosmed = '<a href="#" data-bs-toggle="modal" data-bs-target="#modalupdatesosmed" data-id="'+datas[index].id+'" data-sosmed_id="'+datas[index].sosmed.id+'" data-icon="lni lni-'+datas[index].sosmed.icon+'" data-link="'+datas[index].link+'" class="col-xl-2 col-4"><div class="card card-body" id="" style="border-radius: 10px" ><div class="was-validated"><div class="p-3 border rounded text-center"><div class="col-xl-1"><i class="lni lni-'+datas[index].sosmed.icon+'" id="icon" style="font-size: 30px"></i></div></div></div></div></a>';
-                                    card_icon_app = '<i class="lni lni-'+datas[index].sosmed.icon+'" style="margin: 5px"></i>';
+                                    card_sosmed = '<a href="#" data-bs-toggle="modal" data-bs-target="#modalupdatesosmed" data-id="'+datas[index].id+'" data-sosmed_id="'+datas[index].sosmed.id+'" data-icon="fa fa-'+datas[index].sosmed.icon+'" data-link="'+datas[index].link+'" class="col-xl-2 col-4"><div class="card card-body" id="" style="border-radius: 10px" ><div class="was-validated"><div class="p-3 border rounded text-center"><div class="col-xl-1"><i class="fa fa-'+datas[index].sosmed.icon+'" id="icon" style="font-size: 30px"></i></div></div></div></div></a>';
+                                    card_icon_app = '<i class="fa fa-'+datas[index].sosmed.icon+'" style="margin: 5px"></i>';
                                     $('#card_sosmed').append(card_sosmed);
                                     $('#card_icon_app').append(card_icon_app);
                                 }
