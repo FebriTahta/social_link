@@ -64,7 +64,7 @@
 					<a href="{{$item->link}}" target="_blank" style="text-decoration: none" class="accordion-column col-sm-6 text-muted">
 						<!-- Accordian Box -->
 						<ul class="accordion-box" style="text-align: center">	
-							<div class="card" style="padding: 10px; border-radius: 10px">
+							<div class="card" style="padding: 10px; border-radius: 20px">
 								<div class="acc-btn" style="text-transform: capitalize; text-align: center"> {{$item->name}}</div>
 							</div>
 						</ul>
