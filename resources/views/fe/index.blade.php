@@ -5,9 +5,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta property="og:site_name" content="E-Certificate">
-    <meta property="og:title" content="Download E-Certificate"/>
-    <meta property="og:description" content="Selamat datang para pecinta Al-Qur'an, terimakasih telah ikut serta
-     dalam diklat tilawati. download e-certificate anda disini"/>
+    <meta property="og:title" 
+	@if ($data !== null)
+	content="{{$data->name}}"
+	@else
+	content="Media NF"
+	@endif  
+	 />
+    <meta property="og:description"
+	content="{{$data->deskripsi}}"
+	@else
+	content="Kumpulan media nurul falah"
+	@endif
+    />
      <meta property="og:image" itemprop="image"
 	 @if ($data !== null)
 	 content="{{ asset('be_img_aplikasi_thumb/'.$data->img) }}"
