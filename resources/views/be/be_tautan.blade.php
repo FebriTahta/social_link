@@ -528,7 +528,7 @@
             dataType: 'json',
                 success:function(datas) {
                     if (datas !== 'kosong') {
-                        $('#mylink').val('http://127.0.0.1:8000/'+datas);
+                        $('#mylink').val('http://media.tilawatipusat.com/'+datas);
                         $('#btncopy').val('Copy');
                         $('#btncopy').attr('disabled',false);
                     }else{
@@ -981,7 +981,7 @@
                         dataType: 'json',
                             success:function(datas) {
                                 if (datas !== 'kosong') {
-                                    $('#mylink').val('http://127.0.0.1:8000/'+datas+'.com');
+                                    $('#mylink').val('http://media.tilawatipusat.com/'+datas);
                                     $('#btncopy').val('Copy');
                                     $('#btncopy').attr('disabled',false);
                                 }else{
