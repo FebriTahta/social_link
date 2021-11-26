@@ -46,7 +46,7 @@
 			<!-- Sec Title -->
 			<div class="sec-title centered">
 				<img src="{{asset('be_img_aplikasi/'.$data->img)}}" style="border-radius: 50%; width: 100px" alt="">
-				<div class="text-bold text-white mt-2">
+				<div class="text-bold text-white mt-2 text-center">
 					<h5 style="margin-top: 25px">{{$data->name}}</h5>
 					<p>{{$data->deskripsi}}</p>
 				</div>
