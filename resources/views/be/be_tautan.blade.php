@@ -369,13 +369,13 @@
                 <div class="modal-body">
                     {{-- <input type="text" name="id" id="id_del"> --}}
                     <div class="p-4 border rounded">
-                        <input type="text" id="mylink" target="_blank" class="form-control" readonly disabled>
+                        <input type="text" id="mylink" class="form-control" readonly disabled>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <input class="btn btn-info text-white" onclick="copyLink()" id="btncopy" type="button" value="Copy">
-                    <a href="" id="openlink" class="btn btn-primary text-white" type="button">Open Link</a>
+                    <a href="" id="openlink" target="_blank" class="btn btn-primary text-white" type="button">Open Link</a>
                 </div>
             </form>
         </div>
