@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>E-Certificate</title>
+<title>{{$data->name}}</title>
 <!-- Stylesheets -->
 <link href="{{ asset('tilawatipusat/landing/css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('tilawatipusat/landing/css/style.css') }}" rel="stylesheet">
@@ -15,8 +15,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="shortcut icon" href="{{ asset('tilawatipusat/landing/images/favicon.png') }}" type="image/x-icon">
-<link rel="icon" href="{{ asset('tilawatipusat/landing/images/favicon.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('corak/nf.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('corak/nf.png') }}" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,4 +26,4 @@
 <body class="hidden-bar-wrapper">
 <div class="page-wrapper">
     <!-- Preloader -->
-    <div class="preloader"></div>
+    {{-- <div class="preloader"></div> --}}

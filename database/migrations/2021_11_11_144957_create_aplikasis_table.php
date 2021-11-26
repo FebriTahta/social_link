@@ -17,6 +17,7 @@ class CreateAplikasisTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->text('slug')->nullable();
             $table->longText('img')->nullable();
             $table->timestamps();

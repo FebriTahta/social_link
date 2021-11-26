@@ -27,8 +27,7 @@
                 </nav>
             </div>
         </div>
-        <div class="ms-auto">
-        </div>
+        
         <!--end breadcrumb-->
         {{-- <div class="row"> --}}
             <div class="col">
@@ -38,18 +37,46 @@
                 <div id="errList" class="text-uppercase">
                 
                 </div>
+                <div class="ms-auto">
+                    <button class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#modalsocialink">MY MEDIA LINK</button>
+                </div>
                 <br>
                 <div class="row">
-                    <div class="col-xl-8" id="field_tautan">
+                    <div class="col-xl-7" id="field_tautan">
                         <div class="card card-body" style="border-radius: 10px">
                             <h5 class="text-uppercase">Nama & Image Aplikasi</h5>
                             <form id="formaplikasi" method="POST" enctype="multipart/form-data" class="was-validated">@csrf
                                 <div class="p-4 border rouunded">
                                     <div class="row">
-                                        <div class="mb-1 col-xl-5">
+                                        <div class="mb-2 col-xl-7">
                                             <input type="hidden" name="user_id" value="{{auth()->user()->id}}" required>
-                                            <input type="text" name="name" class="form-control" placeholder="nama aplikasi.." required>
+                                            <input type="text" name="name" class="form-control"
+                                            @if (auth()->user()->aplikasi !== null)
+                                            value="{{auth()->user()->aplikasi->name}}"    
+                                            @else
+                                            placeholder="nama aplikasi.."
+                                            @endif
+                                            required>
                                             <div class="invalid-feedback">nama aplikasi harus diisi</div>
+                                        </div>
+                                        <div class="mb-2 col-xl-5">
+                                            <input type="text" name="slug" class="form-control"
+                                            @if (auth()->user()->aplikasi !== null)
+                                                value="{{auth()->user()->aplikasi->slug}}"
+                                            @else
+                                                placeholder="nama belakang link.."
+                                            @endif
+                                            required>
+                                            <div class="invalid-feedback">tentukan nama belakang link</div>
+                                        </div>
+                                        <div class="mb-2 col-xl-12">
+                                            <input type="text" name="deskripsi" class="form-control" 
+                                            @if (auth()->user()->aplikasi !== null)
+                                            value="{{auth()->user()->aplikasi->deskripsi}}"    
+                                            @else
+                                            placeholder="deskripsi singkat.."
+                                            @endif    
+                                            >
                                         </div>
                                         <div class="mb-1 col-xl-12"></div>
                                         <div class="mb-1 col-xl-10">
@@ -77,14 +104,14 @@
                                             <div class="invalid-feedback">harus diisi</div>
                                         </div>
                                         <div class="mb-1 col-xl-6">
-                                            <input value="" type="text" name="link" class="form-control" placeholder="https://link-tautan.com.." required>
-                                            <div class="invalid-feedback">harus diisi</div>
+                                            <input value="" type="text" id="linktautan" name="link" class="form-control" placeholder="https://link-tautan.com.." required>
+                                            <div id="tautanlink" class="invalid-feedback">harus diisi</div>
                                         </div>
                                         <div class="mb-1 col-xl-6">
                                             
                                         </div>
                                         <div class="md-1 col-xl-6" style="text-align: right">
-                                            <input type="submit" id="btnsubmit" style="max-width: 100px" class="btn btn-info text-white" value="SUBMIT"><br>
+                                            <input type="submit" id="btnsubmit" class="btn btn-info text-white" value="SUBMIT"><br>
                                         </div>
                                     </div>
                                 </div>
@@ -117,22 +144,50 @@
                             @endforeach
                         </div>
                     </div>
-                    
-                    <div class="col-xl-4">
+                    <div class="col-xl-2">
+                        <div class="card card-body" id="card_bg_preview" style="background-color: transparent">
+                            <p> 
+                                <button class="btn btn-sm mb-2 btn-success text-white" data-bs-toggle="modal" data-bs-target="#modalbg">GANTI BACKGROUND</button>
+                                <img style="width: 100%" 
+                                @if (auth()->user()->aplikasi == null)
+                                    src="{{asset('corak/5.jpg')}}"    
+                                @else
+                                    @if (auth()->user()->aplikasi->bg->first() !== null)
+                                        <?php $background = auth()->user()->aplikasi->bg->first()?>
+                                        src="{{asset('bg_img_thumb/'.$background->bg)}}"
+                                    @else
+                                        src="{{asset('corak/5.jpg')}}"    
+                                    @endif
+                                @endif
+                                alt="img">
+                                
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
                         <div class="card card-body text-center;" style="border-radius: 10px; background: transparent; width: 320px">
                             <div style="background-repeat: no-repeat;height: 560px;background-image: url({{asset('pngegg.png')}});">
                                 <div id="head_aplikasi">
                                     <div>
                                         <img id="preview"
-                                        @if (auth()->user()->aplikasi->img !== null)
-                                            src="{{asset('be_img_aplikasi/'.auth()->user()->aplikasi->img)}}" 
+                                        @if (auth()->user()->aplikasi !== null)
+                                            @if (auth()->user()->aplikasi->img !== null)
+                                                src="{{asset('be_img_aplikasi/'.auth()->user()->aplikasi->img)}}"     
+                                            @else
+                                                src="{{asset('corak/nf.png')}}" 
+                                            @endif
                                         @else
-                                            src="{{asset('assets/images/avatars/avatar-1.png')}}" 
+                                            src="{{asset('corak/nf.png')}}" 
                                         @endif
                                         style="margin-left: 103px; margin-top:60px" alt="Admin" class="rounded-circle p-1" width="80">
-                                        <p style="text-align: center; font-size: 12px; margin-top: 10px" id="nama_aplikasi">
-                                            @if (auth()->user()->aplikasi->name !== null)
+                                        <h5 style="text-align: center; font-size: 14px; margin-top: 10px" id="nama_aplikasi">
+                                            @if (auth()->user()->aplikasi !== null)
                                                 {{auth()->user()->aplikasi->name}}
+                                            @endif
+                                        </h5>
+                                        <p style="text-align: center; font-size: 12px; margin-top: 10px" id="nama_aplikasi">
+                                            @if (auth()->user()->aplikasi !== null)
+                                                {{auth()->user()->aplikasi->deskripsi}}
                                             @endif
                                         </p>
                                     </div>
@@ -187,7 +242,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="validationServer01" class="form-label">Links</label>
-                            <input type="text" id="link" name="link" class="form-control is-invalid" placeholder="-" required>
+                            <input type="text" id="linktautanup" name="link" class="form-control is-invalid" placeholder="-" required>
                         </div>
                     </div>
                 </div>
@@ -217,7 +272,7 @@
                         <div class="mb-1 col-xl-9">
                             <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             <input type="hidden" name="sosmed_id" id="sosmed_id">
-                            <input value="" type="text" name="link" class="form-control" placeholder="https://link-tautan.com.." required>
+                            <input value="" type="text" name="link" id="linksosmed" class="form-control" placeholder="https://link-tautan.com.." required>
                             <div class="invalid-feedback">harus diisi</div>
                         </div>
                         <div class="md-1 col-xl-2" style="text-align: right">
@@ -246,7 +301,7 @@
                         <div class="mb-1 col-xl-7">
                             <input type="hidden" name="id" id="id">
                             <input type="hidden" name="sosmed_id" id="sosmed_id">
-                            <input value="" type="text" id="link" name="link" class="form-control" placeholder="https://link-tautan.com.." required>
+                            <input value="" type="text" id="socialinkup" name="link" class="form-control" placeholder="https://link-tautan.com.." required>
                             <div class="invalid-feedback">harus diisi</div>
                         </div>
                         <div class="md-1 col-xl-4" style="text-align: right">
@@ -303,10 +358,75 @@
         </div>
     </div>
 </div>
+
+<div id="modalsocialink" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">LINK ANDA</h5>
+            </div>
+            <form id="#" class="was-validated" enctype="multipart/form-data" method="post">@csrf
+                <div class="modal-body">
+                    {{-- <input type="text" name="id" id="id_del"> --}}
+                    <div class="p-4 border rounded">
+                        <input type="text" id="mylink" class="form-control" readonly disabled>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input class="btn btn-info text-white" onclick="copyLink()" id="btncopy" type="button" value="Copy">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="modalbg" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">PILIH BACKGROUND</h5>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            <div class="modal-header">
+                @if (auth()->user()->aplikasi == null)
+                <code>BUAT NAMA APLIKASI ANDA DULU KEMUDIAN PILIH BACKGROUND ANDA</code>
+                @endif
+            </div>
+            <div class="row modal-body">
+                @foreach ($bg as $item)
+                    <form action="/be-bg-add" method="POST" class="card col-6 col-md-4" enctype="multipart/form-data">@csrf
+                        <input type="hidden" name="bg_id" value="{{$item->id}}">
+                        <img src="{{asset('bg_img_thumb/'.$item->bg_thumb)}}" alt="">
+                        @if (auth()->user()->aplikasi !== null)
+                        <input type="hidden" name="aplikasi_id" value="{{auth()->user()->aplikasi->id}}">
+                        <input type="submit" id="pilih_bg" class="btn btn-sm btn-info text-white" value="PILIH">
+                        @endif
+                    </form>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @endsection
 
 @section('script')
 <script>
+
+    function copyLink() {
+    /* Get the text field */
+    var copyText = document.getElementById("mylink");
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+    }
+
     function showPreview(event){
         if(event.target.files.length > 0){
             var src = URL.createObjectURL(event.target.files[0]);
@@ -335,11 +455,90 @@
     })
 
     $(document).ready(function(){
+        // get bg img
+                
+        // validasi social media link dan tautan
+        $(function() {
+            $('#linktautan').keyup(function() {
+                formatlink = $(this).val().substr(0,8);
+                if (formatlink !== 'https://') {
+                    $('#btnsubmit').val('Diawali https://' );
+                    $('#btnsubmit').attr('disabled','disabled');
+                    $('#btnsubmit').addClass('btn btn-danger');
+                }if(formatlink  == 'https://') {
+                    $('#btnsubmit').val('SUBMIT' );
+                    $('#btnsubmit').attr('disabled',false);
+                    $('#btnsubmit').removeClass('btn btn-danger');
+                    $('#btnsubmit').addClass('btn btn-info');
+                }
+            });
+
+            $('#linktautanup').keyup(function() {
+                formatlink = $(this).val().substr(0,8);
+                if (formatlink !== 'https://') {
+                    $('#btnupdate').val('Diawali https://' );
+                    $('#btnupdate').attr('disabled','disabled');
+                    $('#btnupdate').addClass('btn btn-danger');
+                }if(formatlink  == 'https://') {
+                    $('#btnupdate').val('Update' );
+                    $('#btnupdate').attr('disabled',false);
+                    $('#btnupdate').removeClass('btn btn-danger');
+                    $('#btnupdate').addClass('btn btn-primary');
+                }
+            });
+
+            $('#linksosmed').keyup(function() {
+                formatlink = $(this).val().substr(0,8);
+                if (formatlink !== 'https://') {
+                    $('#btnsubmitsosmed').val('https://' );
+                    $('#btnsubmitsosmed').attr('disabled','disabled');
+                    $('#btnsubmitsosmed').addClass('btn btn-danger');
+                }if(formatlink  == 'https://') {
+                    $('#btnsubmitsosmed').val('Update' );
+                    $('#btnsubmitsosmed').attr('disabled',false);
+                    $('#btnsubmitsosmed').removeClass('btn btn-danger');
+                    $('#btnsubmitsosmed').addClass('btn btn-primary');
+                }
+            });
+
+            $('#socialinkup').keyup(function() {
+                formatlink = $(this).val().substr(0,8);
+                if (formatlink !== 'https://') {
+                    $('#btnupdatesosmed').val('https://' );
+                    $('#btnupdatesosmed').attr('disabled','disabled');
+                    $('#btnupdatesosmed').addClass('btn btn-danger');
+                }if(formatlink  == 'https://') {
+                    $('#btnupdatesosmed').val('Update' );
+                    $('#btnupdatesosmed').attr('disabled',false);
+                    $('#btnupdatesosmed').removeClass('btn btn-danger');
+                    $('#btnupdatesosmed').addClass('btn btn-primary');
+                }
+            });
+        });
+
         $("body").bind("ajaxSend", function(elm, xhr, s){
             if (s.type == "POST") {
                 xhr.setRequestHeader('X-CSRF-Token', csrf_token);
             }
         });
+
+        $.ajax({
+            url:"{{ route('be_get.link')}}",
+            type: 'get',
+            dataType: 'json',
+                success:function(datas) {
+                    if (datas !== 'kosong') {
+                        $('#mylink').val('http://127.0.0.1:8000/'+datas);
+                        $('#btncopy').val('Copy');
+                        $('#btncopy').attr('disabled',false);
+                    }else{
+                        $('#mylink').val('Buat Nama Aplikasi Terlebih Dahulu');
+                        $('#btncopy').attr('disabled','disabled');
+                        $('#btncopy').val('Not Valid');
+                    }
+                }
+        });
+        
     })
 
     $('#modalsosmed').on('show.bs.modal',function(event) {
@@ -363,7 +562,7 @@
         id              = button.data('id')
         var sosmed_id   = button.data('sosmed_id')
         var modal       = $(this)
-        $(this).find('#link').val(link);
+        $(this).find('#socialinkup').val(link);
         $(this).find('#id').val(id);
         $(this).find('#sosmed_id').val(sosmed_id);
         $(this).find("i").removeClass();
@@ -380,7 +579,7 @@
         var link    = button.data('link')
         var modal   = $(this)
         modal.find('.modal-body #name').val(name);
-        modal.find('.modal-body #link').val(link);
+        modal.find('.modal-body #linktautanup').val(link);
         modal.find('.modal-body #id').val(id);
     })
 
@@ -775,6 +974,23 @@
                                 console.log(data);
                         }
                     });
+
+                    $.ajax({
+                        url:"{{ route('be_get.link')}}",
+                        type: 'get',
+                        dataType: 'json',
+                            success:function(datas) {
+                                if (datas !== 'kosong') {
+                                    $('#mylink').val('http://127.0.0.1:8000/'+datas+'.com');
+                                    $('#btncopy').val('Copy');
+                                    $('#btncopy').attr('disabled',false);
+                                }else{
+                                    $('#mylink').val('Buat Nama Aplikasi Terlebih Dahulu');
+                                    $('#btncopy').attr('disabled','disabled');
+                                    $('#btncopy').val('Not Valid');
+                                }
+                            }
+                    });
                     
                 }else{
                     $('#btnaplikasi').val('SUBMIT');
@@ -793,5 +1009,47 @@
             }
         });
     });
+
+    $('#formaddbg').submit(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+            type:'POST',
+            url: "{{ route('be_bg.add')}}",
+            data: formData,
+            cache:false,
+            contentType: false,
+            processData: false,
+            beforeSend:function(){
+                $('#pilih_bg').attr('disabled','disabled');
+                $('#pilih_bg').val('Process');
+            },
+            success: function(response){
+                if(response.status == 200)
+                {
+                    $('#formaddbg')[0].reset();
+                    $('#pilih_bg').val('Pilih');
+                    $('#pilih_bg').attr('disabled',false);
+                    toastr.success(response.message);
+                    $('#errList').removeClass('alert alert-danger');
+                }else{
+                    $('#modalbg').modal('toggle');
+                    $('#pilih_bg').val('Submit');
+                    $('#pilih_bg').attr('disabled',false);
+                    $('#errList').html("");
+                    $('#errList').addClass('alert alert-danger');
+                    $.each(response.errors, function(key, err_values) {
+                        $('#errList').append('<div>'+err_values+'</div>');
+                    });
+                    toastr.error(response.message);
+                }
+            },
+            error: function(data)
+            {
+                console.log(data);
+            }
+        });
+    });
+    
 </script>
 @endsection

@@ -5,10 +5,12 @@ use App\Models\Link;
 use Validator;
 use App\Models\Subsosmed;
 use Auth;
+use Image;
 use App\Models\Aplikasi;
 use App\Models\Sosmed;
 use App\Models\User;
 use Illuminate\Support\Str;
+use App\Models\Bg;
 use Illuminate\Http\Request;
 
 class LinkController extends Controller
@@ -18,8 +20,9 @@ class LinkController extends Controller
         $datas_sosmed   = Sosmed::all();
         $sub_sosmed     = Subsosmed::all();
         $datas          = Link::orderBy('id','asc')->get();
+        $bg             = Bg::all();
         
-        return view('be.be_tautan',compact('datas','sub_sosmed','datas_sosmed'));
+        return view('be.be_tautan',compact('datas','sub_sosmed','datas_sosmed','bg'));
     }
 
     public function be_link_dell(Request $request)
@@ -37,7 +40,7 @@ class LinkController extends Controller
     public function be_link_store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'      => 'max:20',
+            'name'      => 'max:30',
             'link'      => 'max:100',
             'urutan'    => 'max:5',
             'status'    => 'max:5',
@@ -158,6 +161,8 @@ class LinkController extends Controller
         $validator = Validator::make($request->all(), [            
             'user_id'   => 'required',
             'name'      => 'required|max:100',
+            'slug'      => 'required',
+            'deskripsi' => 'max:50',
             'img'       => 'mimes:jpeg,jpg,png,gif,svg',
         ]);
     
@@ -171,42 +176,36 @@ class LinkController extends Controller
 
         }else {
             # code...
-            $slug       = Str::slug($request->name);
+            $slug       = Str::slug($request->slug);
             $data       = Aplikasi::where('slug',$slug);
 
             if ($request->img !== null) {
                 # code...
-                // save image
                 $filename = time().'.'.$request->img->getClientOriginalExtension();
+                // lokasi folder
+                $destinationPath  = public_path('/be_img_aplikasi_thumb');
+                // resize & compress thumnail
+                $imgFile = Image::make($request->img->getRealPath());
+                $imgFile->resize(200, null, function ($constraint) {
+                $constraint->aspectRatio();
+                })->save($destinationPath.'/'.$filename);
+                // original image folder
                 $request->img->move(public_path('be_img_aplikasi'), $filename);
+                
                 // store data
-                if ($data->count() < 0) {
-                    # code...
-                    $datas      = Aplikasi::updateOrCreate(
-                        [
-                            'user_id' => $request->user_id
-                        ],
-                        [
-                            'user_id'   => Auth::id(),
-                            'name'      => $request->name,
-                            'slug'      => $slug,
-                            'img'       => $filename
-                        ]
-                    );
-                }else {
-                    # code...
-                    $datas      = Aplikasi::updateOrCreate(
-                        [
-                            'user_id' => $request->user_id
-                        ],
-                        [
-                            'user_id'   => Auth::id(),
-                            'name'      => $request->name,
-                            'slug'      => $slug.$data->count(),
-                            'img'       => $filename
-                        ]
-                    );
-                }
+                $datas      = Aplikasi::updateOrCreate(
+                    [
+                        'user_id'   => $request->user_id,
+                    ],
+                    [
+                        'user_id'   => Auth::id(),
+                        'name'      => $request->name,
+                        'slug'      => $slug,
+                        'deskripsi' => $request->deskripsi,
+                        'img'       => $filename
+                    ]
+                );
+
             }else {
                 # code...
                 $datas      = Aplikasi::updateOrCreate(
@@ -226,7 +225,7 @@ class LinkController extends Controller
                 [
                     'datas'   => $datas,
                     'status'  => 200,
-                    'message' => 'Sosmed Has Been Added'
+                    'message' => 'Aplikasi Name & Image Has Been Added'
                 ]
             );
         }
@@ -240,10 +239,31 @@ class LinkController extends Controller
         <div>
             <img id="preview" src="'.$url.'" 
             style="margin-left: 103px; margin-top:60px" alt="Admin" class="rounded-circle p-1" width="80">
-            <p style="text-align: center; font-size: 12px; margin-top: 10px" id="nama_aplikasi">
+            <h5 style="text-align: center; font-size: 14px; margin-top: 10px" id="nama_aplikasi">
                 '.$data->name.'
+            </h5>
+            <p style="text-align: center; font-size: 11px; margin-top: 10px" id="nama_aplikasi">
+                '.$data->deskripsi.'
             </p>
         </div>
             ', 200);
     }
+
+    public function be_get_link(Request $request)
+    {
+        $user_id = Auth::id();
+        $data= Aplikasi::where('user_id',$user_id)->first();
+        if ($data !== null) {
+            # code...
+            return response()->json(
+                $data->slug
+            );
+        }else {
+            # code...
+            return response()->json('kosong');
+        }
+    }
+
+    //validasi link social media & tautan
+    
 }
