@@ -65,7 +65,7 @@
 						<!-- Accordian Box -->
 						<ul class="accordion-box" style="text-align: center">	
 							<li class="accordion block">
-								<div class="acc-btn" style="text-transform: capitalize; text-align: right"> {{$item->name}}</div>
+								<div class="acc-btn" style="text-transform: capitalize; text-align: center"> {{$item->name}}</div>
 							</li>
 						</ul>
 					</a>
