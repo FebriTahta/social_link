@@ -13,6 +13,7 @@
 	@endif  
 	 />
     <meta property="og:description"
+	@if ($data !== null)
 	content="{{$data->deskripsi}}"
 	@else
 	content="Kumpulan media nurul falah"
@@ -24,7 +25,7 @@
 	 @else
 	 content="{{ asset('be_img_aplikasi_thumb/1637900067.jpeg') }}"
 	 @endif 
-	  >
+	>
 @endsection
 
 @section('content')
