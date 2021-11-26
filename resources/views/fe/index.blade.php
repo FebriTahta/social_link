@@ -31,7 +31,7 @@
 		style="background-image: url({{ asset('bg_img_ori/'.$background->bg) }});"
 		@endif
 		></div>
-		<div class="auto-container" style="min-height: 600px">
+		<div class="auto-container" style="min-height: 700px">
 			<!-- Sec Title -->
 			<div class="sec-title centered">
 				<img src="{{asset('be_img_aplikasi/'.$data->img)}}" style="border-radius: 50%; width: 100px" alt="">
