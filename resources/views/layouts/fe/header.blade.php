@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>{{$data->name}}</title>
 <!-- Stylesheets -->
-<link href="{{ asset('tilawatipusat/landing/css/bootstrap.css') }}" rel="stylesheet">
-{{-- <link href="{{ asset('tilawatipusat/landing/css/style.css') }}" rel="stylesheet"> --}}
+{{-- <link href="{{ asset('tilawatipusat/landing/css/bootstrap.css') }}" rel="stylesheet"> --}}
+<link href="{{ asset('tilawatipusat/landing/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('tilawatipusat/landing/css/responsive.css') }}" rel="stylesheet">
 <meta property="og:title" content="Download E-Certificate"/>
 <meta property="og:description" content="Selamat datang para pecinta Al-Qur'an, terimakasih telah ikut serta
