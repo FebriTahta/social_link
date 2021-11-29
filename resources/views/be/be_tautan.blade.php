@@ -210,7 +210,7 @@
                                         class="fa fa-{{$item->sosmed->icon}}" 
                                         @else
                                         class="fa fa-{{$item->sosmed->icon}}"
-                                        @endif
+                                        @endif 
                                         style="margin: 5px"> </i>
                                     @endforeach
                                 </p>
