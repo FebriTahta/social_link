@@ -4,10 +4,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{asset('assets/font-awesome-4.7.0/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-	
-	<meta property="og:site_name" content="E-Certificate">
+    <meta property="og:site_name" content="E-Certificate">
     <meta property="og:title" 
 	@if ($data !== null)
 	content="{{$data->name}}"
@@ -29,6 +26,9 @@
 	 content="{{ asset('be_img_aplikasi_thumb/1637900067.jpeg') }}"
 	 @endif 
 	>
+	<script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+	</script>
 	<style>
 		.fab .fa-tiktok {
         color: #111111;
@@ -41,7 +41,6 @@
         z-index: -1;
         }
 	</style>
-	
 @endsection
 
 @section('content')
