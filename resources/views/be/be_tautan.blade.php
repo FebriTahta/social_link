@@ -630,7 +630,7 @@
                         dataType: 'json',
                             success:function(datas) {
                                 for (let index = 0; index < datas.length; index++) {
-                                    card_link = '<a href="#0" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" data-name='+datas[index].name+' data-link="'+datas[index].link+'" data-update="val'+datas[index].id+'" data-id="'+datas[index].id+'" id="get_val'+datas[index]+'"><div class="card card-body link" style="margin-left: 40px; margin-right: 26px; border-radius: 5px"><div style="text-align: right; font-size: 12px">'+datas[index].name+'</div></div></a>'
+                                    card_link = '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" data-name='+datas[index].name+' data-link="'+datas[index].link+'" data-update="val'+datas[index].id+'" data-id="'+datas[index].id+'" id="get_val'+datas[index]+'" type="button" style="width: 200px;" data-name="{{$data->name}}"><div class="card card-body link" style="border-radius: 25px; width: 200px"><div style="text-align: center; font-size: 11px">'+datas[index].name+'</div></div></a>'
                                     $('#card_link').append(card_link);
                                 }
                             }
@@ -685,7 +685,7 @@
                         dataType: 'json',
                             success:function(datas) {
                                 for (let index = 0; index < datas.length; index++) {
-                                    card_link = '<a href="#0" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" data-name='+datas[index].name+' data-link="'+datas[index].link+'" data-update="val'+datas[index].id+'" data-id="'+datas[index].id+'" id="get_val'+datas[index]+'"><div class="card card-body link" style="margin-left: 40px; margin-right: 26px; border-radius: 5px"><div style="text-align: right; font-size: 12px">'+datas[index].name+'</div></div></a>'
+                                    card_link = '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" data-name='+datas[index].name+' data-link="'+datas[index].link+'" data-update="val'+datas[index].id+'" data-id="'+datas[index].id+'" id="get_val'+datas[index]+'" type="button" style="width: 200px;" data-name="{{$data->name}}"><div class="card card-body link" style="border-radius: 25px; width: 200px"><div style="text-align: center; font-size: 11px">'+datas[index].name+'</div></div></a>'
                                     $('#card_link').append(card_link);
                                 }
                             }
@@ -861,7 +861,7 @@
                         dataType: 'json',
                             success:function(datas) {
                                 for (let index = 0; index < datas.length; index++) {
-                                    card_link = '<a href="#0" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" data-name='+datas[index].name+' data-link="'+datas[index].link+'" data-update="val'+datas[index].id+'" data-id="'+datas[index].id+'" id="get_val'+datas[index]+'"><div class="card card-body link" style="margin-left: 40px; margin-right: 26px; border-radius: 5px"><div style="text-align: right; font-size: 12px">'+datas[index].name+'</div></div></a>';
+                                    card_link = '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" data-name='+datas[index].name+' data-link="'+datas[index].link+'" data-update="val'+datas[index].id+'" data-id="'+datas[index].id+'" id="get_val'+datas[index]+'" type="button" style="width: 200px;" data-name="{{$data->name}}"><div class="card card-body link" style="border-radius: 25px; width: 200px"><div style="text-align: center; font-size: 11px">'+datas[index].name+'</div></div></a>'
                                     $('#card_link').append(card_link);
                                 }
                             }
