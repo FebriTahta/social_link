@@ -207,7 +207,7 @@
                                     @foreach ($sub_sosmed as $item)
                                         <i 
                                         @if ($item->sosmed->icon == 'tiktok' || $item->sosmed->icon == 'Tiktok' || $item->sosmed->icon == 'TikTok')
-                                        class="fa fa-{{$item->sosmed->icon}}" 
+                                        class="fab fa-{{$item->sosmed->icon}}" 
                                         @else
                                         class="fa fa-{{$item->sosmed->icon}}"
                                         @endif 
