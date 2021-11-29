@@ -38,7 +38,7 @@
         z-index: -1;
         }
 	</style>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+	{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> --}}
 @endsection
 
 @section('content')
@@ -67,7 +67,7 @@
 					@foreach ($data->user->subsosmed as $item)
 						<a style="" href="{{$item->link}}" target="_blank" style="box-shadow: 10px"><i
 							@if ($item->sosmed->icon == 'tiktok' || $item->sosmed->icon == 'TikTok' || $item->sosmed->icon == 'Tiktok')
-							class="text-white fa fa-{{$item->sosmed->icon}} mr-2 ml-2"
+							class="text-white fab fa-{{$item->sosmed->icon}} mr-2 ml-2"
 							@else
 							class="text-white fa fa-{{$item->sosmed->icon}} mr-2 ml-2"
 							@endif ></i></a>
