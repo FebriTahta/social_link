@@ -8,18 +8,18 @@
                 margin-right: 100px;
             }
         }
-        /* .fa .fa-tiktok {
+        .fab .fa-tiktok {
         color: #111111;
         filter: drop-shadow(-5px -5px 0 #24f6f0) contrast(150%) brightness(110%);
         z-index: -1;
         }
 
-        .fa .fa-tiktok::after {
+        .fab .fa-tiktok::after {
         filter: drop-shadow(5px 5px 0 #F70250) contrast(150%) brightness(110%);
         z-index: -1;
-        } */
+        }
     </style>
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 @endsection
 
 @section('content')
@@ -27,7 +27,7 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Application</div>
+            <div class="breadcrumb-title pe-3">Application</div> 
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
@@ -205,7 +205,13 @@
                                 </div>
                                 <p style="text-align: center; font-size: 20px; margin-top: 10px" id="card_icon_app">
                                     @foreach ($sub_sosmed as $item)
-                                        <i class="fa fa-{{$item->sosmed->icon}}" style="margin: 5px"></i>    
+                                        <i 
+                                        @if ($item->sosmed->icon == 'tiktok' || $item->sosmed->icon == 'Tiktok' || $item->sosmed->icon == 'TikTok')
+                                        class="fa fa-{{$item->sosmed->icon}}" 
+                                        @else
+                                        class="fa fa-{{$item->sosmed->icon}}"
+                                        @endif
+                                        style="margin: 5px"> </i>
                                     @endforeach
                                 </p>
                                 <div style="margin-top: 5px"></div>
