@@ -19,7 +19,6 @@
         z-index: -1;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     
 @endsection
 
@@ -150,6 +149,11 @@
                                         <div class="">
                                             <i 
                                             @if ($item->sosmed->icon == 'tiktok' || $item->sosmed->icon == 'Tiktok' || $item->sosmed->icon == 'TikTok')
+                                            @section('head')
+                                                
+                                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+                                                
+                                            @endsection
                                             class="fab fa-{{$item->sosmed->icon}}"
                                             @else
                                             class="fa fa-{{$item->sosmed->icon}}"
