@@ -67,7 +67,7 @@
 					@foreach ($data->user->subsosmed as $item)
 						<a style="" href="{{$item->link}}" target="_blank" style="box-shadow: 10px"><i
 							@if ($item->sosmed->icon == 'tiktok' || $item->sosmed->icon == 'TikTok' || $item->sosmed->icon == 'Tiktok')
-							class="text-white fab fa-{{$item->sosmed->icon}} mr-2 ml-2"
+							class="text-white fa fa-{{$item->sosmed->icon}} mr-2 ml-2"
 							@else
 							class="text-white fa fa-{{$item->sosmed->icon}} mr-2 ml-2"
 							@endif ></i></a>
