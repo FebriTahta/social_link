@@ -31,8 +31,7 @@
 }
 
 .website-logo .logo {
-    /* background-image: url("../images/logo-light.svg"); */
-    background-image: url("../images/nf_logo.png");
+    background-image: url("../images/logo-light.svg");
 }
 
 .website-logo .logo img {
@@ -44,7 +43,7 @@
 }
 
 .website-logo-inside .logo {
-    background-image: url("../images/nf_logo.png");
+    background-image: url("../images/logo-light.svg");
 }
 
 .website-logo-inside .logo img {
@@ -486,10 +485,10 @@
     }
 
     .website-logo .logo {
-        background-image: url("../images/nf_logo.png");
+        background-image: url("../images/logo-light.svg");
     }
 
     .form-body.without-side .website-logo .logo {
-        background-image: url("../images/nf_logo.png");
+        background-image: url("../images/logo-light.svg");
     }
 }

@@ -110,16 +110,17 @@
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Login</button> 
+                                <a class="page-links" href="{{route('register')}}">Daftar baru</a>
                                 {{-- <a href="forget21.html">Forget password?</a> --}}
                             </div>
                         </form>
-                        <div class="other-links">
+                        {{-- <div class="other-links">
                             <div class="text">Belum punya akun ? </div>
-                            {{-- <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a><a href="#"><i class="fab fa-google"></i>Google</a><a href="#"><i class="fab fa-linkedin-in"></i>Linkedin</a> --}}
+                            <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a><a href="#"><i class="fab fa-google"></i>Google</a><a href="#"><i class="fab fa-linkedin-in"></i>Linkedin</a>
                         </div>
                         <div class="page-links">
-                            <a class="btn btn-info text-white" href="#">Daftar</a>
-                        </div>
+                            <a class="btn btn-info text-white" href="{{route('register')}}">Daftar</a>
+                        </div> --}}
                     </div>
                 </div>
             </div>
