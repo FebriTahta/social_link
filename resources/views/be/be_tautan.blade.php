@@ -147,7 +147,12 @@
                                 <div class="card card-body" id="" style="border-radius: 10px" >
                                     <div class="p-3 border rounded">
                                         <div class="">
-                                            <i class="fa fa-{{$item->sosmed->icon}}" id="icon" style="font-size: 30px"></i>
+                                            <i 
+                                            @if ($item->sosmed->icon == 'tiktok' || $item->sosmed->icon == 'Tiktok' || $item->sosmed->icon == 'TikTok')
+                                            class="fab fa-{{$item->sosmed->icon}}"
+                                            @else
+                                            class="fa fa-{{$item->sosmed->icon}}"
+                                            @endif  id="icon" style="font-size: 30px"></i>
                                         </div>
                                     </div>
                                 </div>
