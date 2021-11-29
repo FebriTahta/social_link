@@ -27,7 +27,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	@yield('head')
 	<title>Media NF</title>
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	{{-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> --}}
 	<link rel="stylesheet" href="{{asset('assets/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 </head>
 <body>

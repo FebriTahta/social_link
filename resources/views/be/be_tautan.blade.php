@@ -8,7 +8,7 @@
                 margin-right: 100px;
             }
         }
-        .fa .fa-tiktok {
+        /* .fa .fa-tiktok {
         color: #111111;
         filter: drop-shadow(-5px -5px 0 #24f6f0) contrast(150%) brightness(110%);
         z-index: -1;
@@ -17,9 +17,9 @@
         .fa .fa-tiktok::after {
         filter: drop-shadow(5px 5px 0 #F70250) contrast(150%) brightness(110%);
         z-index: -1;
-        }
+        } */
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> --}}
 @endsection
 
 @section('content')
